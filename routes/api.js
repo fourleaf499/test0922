@@ -23,7 +23,7 @@ loadtasks();
 
 const savetasks = (tasks) => {
   if (tasks != []) {
-    fs.writeFileSync(filepath, JSON.stringify(tasks));
+    fs.writeFileSync(filepath, JSON.stringify(tasks,null,2));
   } else {
     console.log('tasks is empty, not saving to file');
   }
@@ -42,6 +42,7 @@ router.post('/post',(req,res) => {
   const task = req.body.task;
   const id = tasks.length + 1;
   tasks.push({ id:id, task:task }); 
+  savetasks(tasks)
   console.log({id:id,task:task});
   res.json(tasks);
 });
@@ -50,7 +51,14 @@ router.post('/post',(req,res) => {
 router.delete('/delete/:id', (req, res) => {
   const id = req.params.id;
   tasks =tasks.filter(task => task.id != id ) 
-  res.json(tasks);
+  let newtasks = []
+  tasks.forEach((task,index) => {
+    task.id = index + 1;
+    newtasks.push(task);
+  })
+  tasks = newtasks
+  savetasks(tasks);
+  res.json(newtasks);
 });
 
 
