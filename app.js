@@ -41,4 +41,14 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+const session = require('express-session');
+
+app.use(session({
+  secret: 'test',
+  resave:false,
+  saveUninitialized:false,
+  cookie: {maxAge:60000}
+
+}))
+
 module.exports = app;

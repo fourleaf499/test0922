@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+}
+body #login-form {
+  max-width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+body #login-form .username input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+body #login-form .password input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+body #login-form button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+body #login-form button:hover {
+  background-color: #45a049;
+}
+body #login-form button:active {
+  transform: scale(0.97);
+}/*# sourceMappingURL=login.css.map */
